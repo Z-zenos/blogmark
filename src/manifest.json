@@ -1,0 +1,9 @@
+{
+  "name": "blogmark",
+  "version": "1.0",
+  "description": "Bookmark page and store to firebase",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html"
+  }
+}
