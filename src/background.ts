@@ -1,6 +1,7 @@
 const browser = chrome;
 let currentTab: any;
 let currentBookmark: any;
+
 /*
  * Updates the browserAction icon to reflect whether the current page
  * is already bookmarked.
@@ -28,14 +29,14 @@ function updateIcon() {
  * Switches currentTab and currentBookmark to reflect the currently active tab
  */
 function updateActiveTab() {
+  console.log("Current Bookmark: ", currentBookmark);
+  console.log("Current Tabs: ", currentTab);
+  
 
   function isSupportedProtocol(urlString: string) {
-    console.log("url string: ", urlString);
-    
     let supportedProtocols = ["https:", "http:", "ftp:", "file:"];
     const url = new URL(urlString);
     url.href = urlString;
-    console.log("href: ", url.href);
     
     // Get protocol of url by creating a tag and retieve protocol by protocol property of a.
     return supportedProtocols.indexOf(url.protocol) != -1;

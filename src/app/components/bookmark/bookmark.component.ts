@@ -18,13 +18,14 @@ export class BookmarkComponent implements OnInit {
   /*
   * Add or remove the bookmark on the current page.
   */
-  toggleBookmark(e: Event) {
-    if (this.currentTab) {
-      console.log("id: ", this.currentTab.id);
-      chrome.bookmarks.remove(this.currentTab?.id, (data: any) => {
-        console.log("Error: ", data);
-      });
-    } 
+  async toggleBookmark() {
+    const data: any = await chrome.bookmarks.search(this.currentTab.title);
+
+    if(data.length) {
+      console.log("bookmark id: ", data.id, data.id + "");
+      
+      chrome.bookmarks.remove(data.id + "");
+    }
     else {
       chrome.bookmarks.create({
         title: this.currentTab?.title, 

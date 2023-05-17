@@ -6,7 +6,8 @@
   "permissions": [
     "storage",
     "bookmarks",
-    "tabs"
+    "tabs",
+    "activeTab"
   ],
   "background": {
     "service_worker": "background.js",
