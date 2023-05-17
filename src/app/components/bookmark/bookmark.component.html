@@ -1,6 +1,6 @@
 <div class="bm">
   <h3 class="bm__heading">
-    Add bookmark
+    Blogmark
   </h3>
   <div class="bm__favicon">
     <label>Favicon</label>
@@ -28,7 +28,8 @@
 
   <div class="bm__btns">
     <button class="btn btn--gray" (click)="close()">Cancel</button>
-    <button class="btn btn--green" [disabled]="!currentTab?.title" (click)="toggleBookmark()">Save</button>
+    <button class="btn btn--red" *ngIf="currentBookmark" (click)="removeBookmark()">Remove</button>
+    <button class="btn btn--green" *ngIf="!currentBookmark" (click)="addBookmark()">Save</button>
   </div>
 
 </div>

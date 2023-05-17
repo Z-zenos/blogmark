@@ -42,26 +42,6 @@ a {
   font-size: 1.5rem;
 }
 
-
-/* ================================================== */
-/*                       TEXT                         */
-/* ================================================== */
-
-.primary-text {
-  font-weight: 600;
-  color: $primary-color;
-}
-
-.info-text {
-  font-weight: 600;
-  color: $blue-1;
-}
-
-
-/* ================================================== */
-/*                       BUTTON                       */
-/* ================================================== */
-
 .btn {
   color: white;
   font-weight: 600;
@@ -97,14 +77,14 @@ a {
     background-color: $primary-color;
   }
 
-  &--blue {
-    background-color: $blue-1;
-    border-color: $blue-1;
-    box-shadow: aquamarine 4px 4px 0 0;
+  &--red {
+    background-color: red;
+    border-color: red;
+    box-shadow: #fb3640 4px 4px 0 0;
 
     &:hover {
-      color: $blue-1;
-      border-color: $blue-1;
+      color: red;
+      border-color: red;
     }
   }
 
