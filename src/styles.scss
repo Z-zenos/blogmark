@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,700&display=swap');
 
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
 /* COLOR */
 $primary-color: #1fbc0e;
 $secondary-color: #dff7dc;
@@ -31,7 +33,7 @@ body {
   font-size: 1.4rem;
   background-color: white;
   box-sizing: border-box;
-  height: 36rem;
+  height: 38rem;
 }
 
 html {

@@ -15,13 +15,8 @@
 
     <div class="bm__input-group">
       <label>Location</label>
-      <select>
-        <option value="Angular">Angular</option>
-        <option value="React.js">React.js</option>
-        <option value="C">C</option>
-        <option value="UI / UX">UI / UX</option>
-        <option value="JavaScript">JavaScript</option>
-      </select>
+      <ng-select *ngIf="bookmarkFolderList.length > 1" [items]="bookmarkFolderList" bindLabel="title" bindValue="id"
+        [(ngModel)]="selectedFolderId" placeholder="Select | press key for autocomplete"></ng-select>
     </div>
 
   </div>

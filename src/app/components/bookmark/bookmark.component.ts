@@ -8,6 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class BookmarkComponent implements OnInit {
   currentTab: any;
   currentBookmark: any;
+  bookmarkFolderList: any[] = [
+    {
+      title: "Favorites bar",
+      id: "1"
+    }
+  ];
+
+  selectedFolderId: any;
 
   constructor() { }
 
@@ -17,20 +25,44 @@ export class BookmarkComponent implements OnInit {
     
     const bookmarkData = await chrome.bookmarks.search(this.currentTab.title);
     this.currentBookmark = bookmarkData.length ? bookmarkData[0] : undefined;
+
+    const treeData = await chrome.bookmarks.getTree();
+    // @ts-ignore
+    const bookmarkTree: any = treeData[0]?.children[0]?.children;
+    bookmarkTree.forEach((f: any) => {
+      if(f.children) {
+        this.bookmarkFolderList.push({
+          title: f.title,
+          id: f.id
+        });
+
+        for(let i = 0; i < f.children.length; i++) {
+          if(f.children[i].children) {
+            this.bookmarkFolderList.push({
+              title: f.children[i].title,
+              id: f.children[i].id
+            });
+          }
+        }
+      }
+    });
   }
 
   /*
   * Add or remove the bookmark on the current page.
   */
-  async addBookmark() {
-    await chrome.bookmarks.create({
+  addBookmark() {
+    chrome.bookmarks.create({
+      parentId: this.selectedFolderId ? (this.selectedFolderId + "") : "1",
       title: this.currentTab?.title, 
       url: this.currentTab?.url
     });
+    this.close();
   }
 
-  async removeBookmark() {
-    await chrome.bookmarks.remove(this.currentBookmark?.id);
+  removeBookmark() {
+    chrome.bookmarks.remove(this.currentBookmark?.id);
+    this.close();
   }
 
   close() { window.close(); }
