@@ -1,1 +1,150 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,700&display=swap');
+
+/* COLOR */
+$primary-color: #1fbc0e;
+$secondary-color: #dff7dc;
+$tertiary-color: #f9f9f9;
+$text-color: #3c3c3b;
+
+$green-1: rgb(0, 255, 0);
+$green-2: rgb(55, 230, 19);
+
+$blue-1: rgb(14, 165, 233);
+$gray-1: #777777;
+
+$black-color: #000;
+
+/* TEXT */
+$huge-text: 6.4rem;
+$big-text: 3.2rem;
+$medium-text: 2rem;
+$small-text: 1.6rem;
+$tip-text: 1.2rem;
+
+$border: 1.5px solid $black-color;
+$transition: all .3s ease;
+
+body {
+  font-family: "Space Mono", sans-serif !important;
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
+  background-color: white;
+  box-sizing: border-box;
+  height: 36rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+a {
+  font-size: 1.5rem;
+}
+
+
+/* ================================================== */
+/*                       TEXT                         */
+/* ================================================== */
+
+.primary-text {
+  font-weight: 600;
+  color: $primary-color;
+}
+
+.info-text {
+  font-weight: 600;
+  color: $blue-1;
+}
+
+
+/* ================================================== */
+/*                       BUTTON                       */
+/* ================================================== */
+
+.btn {
+  color: white;
+  font-weight: 600;
+  font-size: $small-text;
+  border: 2px solid $primary-color;
+  transition: $transition;
+  cursor: pointer !important;
+  padding: 1rem 2rem;
+  margin: 0 10px;
+
+  border-radius: 30px;
+  box-shadow: $green-1 4px 4px 0 0;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transform: translateX(0);
+
+  &:hover {
+    background-color: white !important;
+    border-color: $primary-color;
+    color: $primary-color;
+  }
+
+  &:active {
+    box-shadow: $green-1 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+
+  &--green {
+    background-color: $primary-color;
+  }
+
+  &--blue {
+    background-color: $blue-1;
+    border-color: $blue-1;
+    box-shadow: aquamarine 4px 4px 0 0;
+
+    &:hover {
+      color: $blue-1;
+      border-color: $blue-1;
+    }
+  }
+
+  &--gray {
+    background-color: $gray-1;
+    border-color: $gray-1;
+    box-shadow: #c7c7c7 4px 4px 0 0;
+
+    &:hover {
+      color: $gray-1;
+      border-color: $gray-1;
+    }
+  }
+}
+
+input, select {
+  border: 1px solid #ccc;
+  background-color: white;
+  color: $text-color;
+  display: block;
+  line-height: 1.6rem;
+  outline: none;
+  padding: .7rem 1rem;
+  border-radius: 4px;
+  width: 100%;
+  height: 2.4rem;
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: $green-1 0 0 0 4px;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &[type="checkbox"] {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    accent-color: $green-1;
+  }
+}

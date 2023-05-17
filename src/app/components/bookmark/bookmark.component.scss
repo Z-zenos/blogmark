@@ -1,0 +1,46 @@
+@import "../../../styles";
+
+.bm {
+  box-sizing: border-box;
+  width: 36rem;
+  padding: 0 2rem;
+
+  &__heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $primary-color;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: $border;
+  }
+
+  label {
+    font-size: $small-text;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: $primary-color;
+  }
+
+  img {
+    display: block;
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  &__input-group {
+    margin: 1rem 0;
+
+    input {
+      width: 89%;
+    }
+
+    select {
+      height: 40px;
+    }
+  }
+
+  &__btns {
+    margin-top: 2rem;
+  }
+
+}

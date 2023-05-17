@@ -1,0 +1,34 @@
+<div class="bm">
+  <h3 class="bm__heading">
+    Add bookmark
+  </h3>
+  <div class="bm__favicon">
+    <label>Favicon</label>
+    <img [src]="currentTab?.favIconUrl ?? 'assets/icons/bookmark.png'" alt="favicon" />
+  </div>
+
+  <div class="bm__info">
+    <div class="bm__input-group">
+      <label>Name</label>
+      <input [value]="currentTab?.title ?? 'Bookmark it! does not support'">
+    </div>
+
+    <div class="bm__input-group">
+      <label>Location</label>
+      <select>
+        <option value="Angular">Angular</option>
+        <option value="React.js">React.js</option>
+        <option value="C">C</option>
+        <option value="UI / UX">UI / UX</option>
+        <option value="JavaScript">JavaScript</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="bm__btns">
+    <button class="btn btn--gray">Cancel</button>
+    <button class="btn btn--green" [disabled]="!currentTab?.title" (click)="toggleBookmark($event)">Save</button>
+  </div>
+
+</div>

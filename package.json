@@ -22,6 +22,7 @@
     "@types/chrome": "^0.0.236",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "webpack-ext-reloader": "^1.1.9",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

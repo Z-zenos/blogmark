@@ -3,7 +3,22 @@
   "version": "1.0",
   "description": "Bookmark page and store to firebase",
   "manifest_version": 3,
+  "permissions": [
+    "storage",
+    "bookmarks",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
   "action": {
-    "default_popup": "index.html"
+    "default_popup": "index.html",
+    "default_icon": "assets/icons/bookmark-empty1x.png",
+    "default_title": "Blogmark"
+  },
+  "icons": {
+    "48": "assets/icons/bookmark-fill1x.png",
+    "96": "assets/icons/bookmark-fill2x.png"
   }
 }
