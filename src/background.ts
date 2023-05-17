@@ -6,7 +6,7 @@ let currentBookmark: any;
  * is already bookmarked.
  */
 function updateIcon() {
-  browser.browserAction.setIcon({
+  browser.action.setIcon({
     path: currentBookmark ? {
       19: "assets/icons/bookmark-fill1x.png",
       38: "assets/icons/bookmark-fill2x.png"
@@ -17,7 +17,7 @@ function updateIcon() {
     tabId: currentTab.id
   });
 
-  browser.browserAction.setTitle({
+  browser.action.setTitle({
     // Screen readers can see the title
     title: currentBookmark ? 'Unbookmark it!' : 'Bookmark it!',
     tabId: currentTab.id
@@ -33,7 +33,7 @@ function updateActiveTab() {
     console.log("url string: ", urlString);
     
     let supportedProtocols = ["https:", "http:", "ftp:", "file:"];
-    let url = document.createElement('a');
+    const url = new URL(urlString);
     url.href = urlString;
     console.log("href: ", url.href);
     

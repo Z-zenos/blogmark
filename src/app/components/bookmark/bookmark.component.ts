@@ -20,7 +20,10 @@ export class BookmarkComponent implements OnInit {
   */
   toggleBookmark(e: Event) {
     if (this.currentTab) {
-      chrome.bookmarks.remove(this.currentTab?.id);
+      console.log("id: ", this.currentTab.id);
+      chrome.bookmarks.remove(this.currentTab?.id, (data: any) => {
+        console.log("Error: ", data);
+      });
     } 
     else {
       chrome.bookmarks.create({
@@ -29,4 +32,6 @@ export class BookmarkComponent implements OnInit {
       });
     }
   }
+
+  close() { window.close(); }
 }

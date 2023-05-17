@@ -27,7 +27,7 @@
   </div>
 
   <div class="bm__btns">
-    <button class="btn btn--gray">Cancel</button>
+    <button class="btn btn--gray" (click)="close()">Cancel</button>
     <button class="btn btn--green" [disabled]="!currentTab?.title" (click)="toggleBookmark($event)">Save</button>
   </div>
 
