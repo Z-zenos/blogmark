@@ -29,21 +29,19 @@ export class BookmarkComponent implements OnInit {
     const treeData = await chrome.bookmarks.getTree();
     // @ts-ignore
     const bookmarkTree: any = treeData[0]?.children[0]?.children;
-    bookmarkTree.forEach((f: any) => {
+    this.recusifyBookmarkFolder(bookmarkTree);
+    console.log("Bookmark tree: ", this.bookmarkFolderList);
+  }
+
+  recusifyBookmarkFolder(folder: any) {
+    folder.forEach((f: any) => {
       if(f.children) {
         this.bookmarkFolderList.push({
           title: f.title,
           id: f.id
         });
 
-        for(let i = 0; i < f.children.length; i++) {
-          if(f.children[i].children) {
-            this.bookmarkFolderList.push({
-              title: f.children[i].title,
-              id: f.children[i].id
-            });
-          }
-        }
+        this.recusifyBookmarkFolder(f.children);
       }
     });
   }
