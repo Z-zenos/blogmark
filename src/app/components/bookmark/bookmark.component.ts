@@ -56,21 +56,21 @@ export class BookmarkComponent implements OnInit {
       url: this.currentTab?.url
     });
 
-    this._bookmarkService.add({
+    await this._bookmarkService.add({
       name: this.currentTab?.title,
       url: this.currentTab?.url,
       location: this.bookmarkFolderList.find(f => f.id === this.selectedFolderId)?.title ?? 'Favorites bar',
       favicon: this.currentTab?.favIconUrl
     });
 
-    // this.close();
+    this.close();
   }
 
   async removeBookmark() {
     await chrome.bookmarks.remove(this.currentBookmark?.id).then((res) => {
       this._bookmarkService.remove(this.currentTab?.title);
     });
-    // this.close();
+    this.close();
   }
 
   close() { window.close(); }

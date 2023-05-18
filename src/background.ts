@@ -29,7 +29,6 @@ function updateIcon() {
  * Switches currentTab and currentBookmark to reflect the currently active tab
  */
 function updateActiveTab() {  
-
   function isSupportedProtocol(urlString: string) {
     let supportedProtocols = ["https:", "http:", "ftp:", "file:"];
     const url = new URL(urlString);
@@ -47,8 +46,6 @@ function updateActiveTab() {
         // Search bookmark by url
         let searching = browser.bookmarks.search({url: currentTab.url});
         searching.then((bookmarks) => {
-          console.log("bookmark: ", bookmarks);
-          
           currentBookmark = bookmarks[0];
           updateIcon();
         });

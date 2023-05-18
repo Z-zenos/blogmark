@@ -19,11 +19,11 @@ export class BookmarkService {
     this._bookmarks = collection(this._firestore, 'bookmarks');
   }
 
-  add(bookmark: IBookmark) {
+  async add(bookmark: IBookmark) {
     try {
-      addDoc(this._bookmarks, bookmark);
+      await addDoc(this._bookmarks, bookmark);
     } catch(err) {
-      addDoc(this._bookmarks, bookmark)
+      await addDoc(this._bookmarks, bookmark)
     }
   }
 
