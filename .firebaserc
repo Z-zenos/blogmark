@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "blogify-angular": {
+      "hosting": {
+        "blogmark": [
+          "blogify-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "blogify-angular"
+  }
+}

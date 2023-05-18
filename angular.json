@@ -26,10 +26,10 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.json" 
+              "src/manifest.json"
             ],
             "styles": [
-              "src/styles.scss",
+              "src/styles.scss"
             ],
             "scripts": [],
             "optimization": {
@@ -111,6 +111,16 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "blogmark:build:production",
+            "firebaseProject": "blogify-angular",
+            "firebaseHostingSite": "blogify-angular"
           }
         }
       }
